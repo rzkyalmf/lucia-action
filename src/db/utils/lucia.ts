@@ -1,17 +1,15 @@
-import { prisma } from "./prisma";
-import { lucia } from "lucia";
+import { Lucia } from "lucia";
 import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
+import { prisma } from "./prisma";
 
 // function untuk lucin bisa read-write ke db lewat prisma
 const dbAdapter = new PrismaAdapter(prisma.session, prisma.user);
 
-export const lucia = new lucia(dbAdapter, {
+export const lucia = new Lucia(dbAdapter, {
   sessionCookie: {
-    expired: false,
+    expires: false,
     attributes: {
-      secure: proscess.env.NODE_ENV === "production", // https
+      secure: process.env.NODE_ENV === "production", // https
     },
   },
-}); // Instance lucin
-
-export const lucia = new Lucia();
+}); // Instance lucia

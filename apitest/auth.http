@@ -3,7 +3,16 @@
 POST http://localhost:3000/api/auth/register
 
 {
-    "fullname": "alam",
-    "email": "sketsacartoon@gmail.com",
-    "password" : "12345"
+    "fullname": "unique",
+    "email": "hahi@gmail.com",
+    "password" : "112233"
+}
+
+### Login User
+
+POST http://localhost:3000/api/auth/login
+
+{
+    "email": "hahi@gmail.com",
+    "password" : "112233"
 }
