@@ -12,4 +12,23 @@ export const lucia = new Lucia(dbAdapter, {
       secure: process.env.NODE_ENV === "production", // https
     },
   },
+  getUserAttributes: (attributes) => {
+    return {
+      fullname: attributes.fullname,
+      avatar: attributes.avatar,
+    };
+  },
 }); // Instance lucia
+
+// untuk extend external library types
+declare module "lucia" {
+  interface Register {
+    Lucia: typeof lucia;
+    DatabaseUserAttributes: DatabaseUserAttributes;
+  }
+}
+
+interface DatabaseUserAttributes {
+  fullname: string;
+  avatar: string;
+}
