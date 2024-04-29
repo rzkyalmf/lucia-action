@@ -1,5 +1,3 @@
-import { Login } from "@/components/login";
-
 export default function Page() {
-  return <Login />;
+  return <div>Hello World !</div>;
 }

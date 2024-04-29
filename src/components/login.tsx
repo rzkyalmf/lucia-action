@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { redirect } from "next/navigation";
 
 export const Login = () => {
   async function handleLogin(formData: FormData) {
@@ -12,18 +13,25 @@ export const Login = () => {
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await res.json();
-    console.log({ data });
+    // const data = await res.json();
+    // console.log({ data });
+    redirect("/dashboard");
   }
 
   return (
     <main className="flex h-screen justify-center items-center">
       <form action={handleLogin}>
         <div className="w-[340px]">
-          <input name="email" className="block w-full p-2 border rounded-lg" />
+          <input
+            name="email"
+            placeholder="Email"
+            className="block w-full p-2 border rounded-lg mb-2"
+          />
           <input
             name="password"
-            className="block w-full p-2 border rounded-lg"
+            type="password"
+            placeholder="Password"
+            className="block w-full p-2 border rounded-lg mb-2"
           />
           <button className="block w-full p-2 bg-blue-500 text-white">
             login
