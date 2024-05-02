@@ -22,5 +22,5 @@ export async function CreateUser(formData: FormData) {
     },
   });
 
-  // redirect("/login");
+  redirect("/login");
 }

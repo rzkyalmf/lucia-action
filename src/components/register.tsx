@@ -8,7 +8,7 @@ interface userRegisterProps {
 }
 
 export const Register: React.FC<userRegisterProps> = ({ user }) => {
-  console.log(user);
+  // console.log(user);
 
   return (
     <main className="flex h-screen justify-center items-center">
