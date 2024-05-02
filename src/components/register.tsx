@@ -1,28 +1,18 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { CreateUser } from "@/action/createUser";
+import { User } from "@prisma/client";
 
-export const Register = () => {
-  //   const router = useRouter();
+interface userRegisterProps {
+  user: User[];
+}
 
-  async function handleRegister(formData: FormData) {
-    const fullname = formData.get("fullname");
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    const res = await fetch("/api/auth/register", {
-      method: "POST",
-      body: JSON.stringify({ fullname, email, password }),
-    });
-
-    // const data = await res.json();
-    redirect("/login");
-    // console.log({ data });
-  }
+export const Register: React.FC<userRegisterProps> = ({ user }) => {
+  console.log(user);
 
   return (
     <main className="flex h-screen justify-center items-center">
-      <form action={handleRegister}>
+      <form action={CreateUser}>
         <div className="w-[340px]">
           <input
             name="fullname"
